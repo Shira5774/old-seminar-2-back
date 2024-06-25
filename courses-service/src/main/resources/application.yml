@@ -1,0 +1,6 @@
+
+api:
+  courses-service: { course-url: http://localhost:8080 }
+  classes-service: { class-url: http://localhost:8081 }
+  documents-service: { document-url: http://localhost:8082 }
+

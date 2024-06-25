@@ -1,10 +1,10 @@
-//package com.diversi_tech.users_service;
+package com.diversi_tech.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UsersServiceApplicationTests {
+class StudentServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

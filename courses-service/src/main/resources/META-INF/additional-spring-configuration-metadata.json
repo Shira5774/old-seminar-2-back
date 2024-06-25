@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "api.courses-service.url",
+      "type": "java.lang.String",
+      "description": "Description for api.courses-service.url."
+  }
+] }

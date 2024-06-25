@@ -1,6 +1,17 @@
+package com.diversitech.api_project.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.util.Date;
 
+@Entity
 public class Course {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String description;
@@ -13,6 +24,10 @@ public class Course {
         this.description = description;
         this.created_at = created_at;
         this.updated_at = updated_at;
+    }
+
+    public Course() {
+
     }
 
     public int getId() {
@@ -55,5 +70,3 @@ public class Course {
         this.updated_at = updated_at;
     }
 }
-
-

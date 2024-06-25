@@ -1,14 +1,13 @@
-//package com.diversi_tech.users_service;
+package com.driveri_tech.document_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UsersServiceApplication {
+public class DocumentServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UsersServiceApplication.class, args);
+		SpringApplication.run(DocumentServiceApplication.class, args);
 	}
 
 }
-
