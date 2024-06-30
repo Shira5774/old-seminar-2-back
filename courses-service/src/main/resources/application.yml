@@ -26,18 +26,18 @@ external-apis:
   classes-service:
     urls:
       host: https://localhost:8081
-      path:
+      paths:
         classesByCourseIdPath: "/api/classes?courseId="
 
     api-key:
   documents-service:
     urls:
       host: https://localhost:8082 #http://document-service, onrender.com on deployment
-      path:
+      paths:
         docByCourseIdPath: "/api/documents?courseId="
     api-key:
   db-connector:
     urls:
       host: http:localhost:8070
-      path:
+      paths:
         getCourses: /api/getCoursesTable

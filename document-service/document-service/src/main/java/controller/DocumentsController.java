@@ -13,8 +13,8 @@ import service.DocumentsService;
 @RequestMapping("/api/documents")
 public class DocumentsController {
 
-        @Autowired
-        private DocumentsService documentsService;
+//        @Autowired
+//        private DocumentsService documentsService;
 
         @GetMapping(" ")
         public List<Documents> getDocuments() {
@@ -34,7 +34,7 @@ public class DocumentsController {
             @PostMapping
             public void createDocument(@RequestBody Documents documents)
             {
-                documentsService.CreateDocument(documents);
+//                documentsService.CreateDocument(documents);
             }
 
 //            @PutMapping("/{documenetId}")
