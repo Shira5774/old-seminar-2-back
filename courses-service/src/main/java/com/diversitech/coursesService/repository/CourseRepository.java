@@ -1,6 +1,6 @@
-package com.diversitech.coursesService.repository;
+package com.diversitech.coursesservice.repository;
 
-import com.diversitech.coursesService.model.Course;
+import com.diversitech.coursesservice.model.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

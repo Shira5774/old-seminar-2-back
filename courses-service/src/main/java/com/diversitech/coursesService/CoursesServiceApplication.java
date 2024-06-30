@@ -1,13 +1,13 @@
-package com.diversi_tech.demo;
+package com.diversitech.coursesservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class StudentServiceApplication {
+public class CoursesServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(StudentServiceApplication.class, args);
+		SpringApplication.run(CoursesServiceApplication.class, args);
 	}
 
 }

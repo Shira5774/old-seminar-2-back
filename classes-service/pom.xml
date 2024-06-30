@@ -8,11 +8,11 @@
 		<version>3.3.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.diversi-tech</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>com.diversitech</groupId>
+	<artifactId>classes-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>student-service</name>
-	<description>Demo project for Spring Boot</description>
+	<name>classes-service</name>
+	<description>classes-service</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -57,19 +57,12 @@
 		</dependency>
 	</dependencies>
 
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>16</source>
-					<target>16</target>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

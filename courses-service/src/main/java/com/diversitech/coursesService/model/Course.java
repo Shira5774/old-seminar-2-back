@@ -1,4 +1,4 @@
-package com.diversitech.coursesService.model;
+package com.diversitech.coursesservice.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

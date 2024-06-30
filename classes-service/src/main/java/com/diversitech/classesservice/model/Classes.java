@@ -1,4 +1,4 @@
-package com.diversi_tech.demo.model;
+package com.diversitech.classesservice.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,8 +15,8 @@ public class Classes {
     private int course_Id;
     private String class_name;
     private String description;
-    private Date start_data;
-    private Date end_data;
+    private Date start_date;
+    private Date end_date;
 
     public Classes() {
     }
@@ -26,8 +26,8 @@ public class Classes {
         this.course_Id = course_Id;
         this.class_name = class_name;
         this.description = description;
-        this.start_data = start_data;
-        this.end_data = end_data;
+        this.start_date = start_data;
+        this.end_date = end_data;
     }
 
     public int getClass_id() {
@@ -46,12 +46,12 @@ public class Classes {
         return description;
     }
 
-    public Date getStart_data() {
-        return start_data;
+    public Date getStart_date() {
+        return start_date;
     }
 
-    public Date getEnd_data() {
-        return end_data;
+    public Date getEnd_date() {
+        return end_date;
     }
 
     public void setClass_id(int class_id) {
@@ -70,11 +70,11 @@ public class Classes {
         this.description = description;
     }
 
-    public void setStart_data(Date start_data) {
-        this.start_data = start_data;
+    public void setStart_date(Date start_data) {
+        this.start_date = start_data;
     }
 
-    public void setEnd_data(Date end_data) {
-        this.end_data = end_data;
+    public void setEnd_date(Date end_data) {
+        this.end_date = end_data;
     }
 }

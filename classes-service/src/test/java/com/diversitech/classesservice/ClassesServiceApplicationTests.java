@@ -1,10 +1,10 @@
-package com.diversitech.coursesService;
+package com.diversitech.classesservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiProjectApplicationTests {
+class ClassesServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,7 +1,7 @@
-package com.diversitech.coursesService.service;
+package com.diversitech.coursesservice.service;
 
-import com.diversitech.coursesService.model.Course;
-import com.diversitech.coursesService.repository.CourseRepository;
+import com.diversitech.coursesservice.model.Course;
+import com.diversitech.coursesservice.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -11,8 +11,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+
 @Service
-public class CourseService{
+public class CourseService {
 
     @Autowired
     private CourseRepository courseRepository;
@@ -42,19 +43,27 @@ public class CourseService{
         courseRepository.delete(course);
     }
 
-    @Value("${api.classes-service.class-url}")
-    private String classServiceUrl;
+    private RestTemplate restTemplate;
 
-    private final RestTemplate restTemplate;
-
-    @Autowired
     public CourseService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
-    public String callClassService() {
-        String url = classServiceUrl + "/endpoint";
-        return restTemplate.getForObject(url, String.class);
+    public String fetchFromClassService(){
+        String classUrl = "http://localhost:8081/api/classes";
+        return restTemplate.getForObject(classUrl, String.class);
     }
-}
 
+    public String fetchFromDocumentService(){
+        String documentUrl = "http://localhost:8082/api/document";
+        return restTemplate.getForObject(documentUrl, String.class);
+    }
+
+//    @Value("${custom.classes-service.url}")
+//    private String classServiceUrl;
+//
+//    public String callClassService() {
+//        String url = classServiceUrl + "/endpoint";
+//        return restTemplate.getForObject(url, String.class);
+//    }
+}

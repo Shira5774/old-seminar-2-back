@@ -1,27 +1,64 @@
-package com.diversitech.coursesService.controller;
+package com.diversitech.coursesservice.controller;
 
-import com.diversitech.coursesService.model.Course;
-import com.diversitech.coursesService.service.CourseService;
+import com.diversitech.coursesservice.model.Classes;
+import com.diversitech.coursesservice.model.Course;
+import com.diversitech.coursesservice.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
+import javax.swing.text.Document;
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/courses")
 public class CourseController {
 
-    @Autowired
-    private CourseService courseService;
 
-    @GetMapping("/call-class-service")
-    public String callClassService() {
-        return courseService.callClassService();
+    @Autowired
+    private RestTemplate restTemplate;
+
+    private final CourseService courseService;
+    @Value("${external-apis.documents-service.urls.path.docByCourseIdPath}")
+    private String documentsServicePath;
+    @Value("${external-apis.documents-service.urls.host}")
+    private String documentsHost;
+
+    @Value("${external-apis.classes-service.urls.path.classesByCourseIdPath}")
+    private String classesByCourseIdPath;
+    @Value("${external-apis.classes-service.urls.host}")
+    private String classesHost;
+
+    @Autowired
+    public CourseController(CourseService courseService) {
+        this.courseService = courseService;
     }
+//
+//    @GetMapping("/call-class-service")
+//    public String callClassService() {
+//        String res = courseService.fetchFromClassService();
+//        System.out.println(res);
+//        return res;
+//    }
+//
+//    @GetMapping("/call-document-service")
+//    public String callDocumentService() {
+//        String res = courseService.fetchFromDocumentService();
+//        System.out.println(res);
+//        return res;
+//    }
 
     @GetMapping("")
     public List<Course> getAllCourses() {
+
+
+
+
         return courseService.getAllCourses();
     }
 
@@ -54,16 +91,25 @@ public class CourseController {
     }
 
 
-//    @GetMapping("/{classes-service}")
-//    public ResponseEntity<List<Classes>> getClassesByCourseId(@RequestParam Integer courseId) {
-//        List<Classes> classes = courseService.getClassesByCourseId(courseId);
-//        if (classes.isEmpty()) {
-//            return ResponseEntity.notFound().build();
-//        }
-//        return ResponseEntity.ok(classes);
-//    }
 //
-//    @GetMapping("/{classes-service}")
+//    @GetMapping("/{courseId}/classes")
+//    public ResponseEntity<List<Classes>> getClassesByCourseId(@PathVariable int courseId) {
+//        String classServiceUrl = classesHost + classesByCourseIdPath + courseId;
+//        ResponseEntity<List<Classes>> response = restTemplate.getForEntity(classServiceUrl, (Class<List<Classes>>)(Class<?>)List.class);
+//        return response;
+//    }
+    @GetMapping("/{courseId}/classes")
+    public ResponseEntity<List<Classes>> getClassesByCourseId(@PathVariable int courseId) {
+    String classServiceUrl = classesHost + classesByCourseIdPath + courseId;
+    ResponseEntity<List<Classes>> response = restTemplate.exchange(classServiceUrl, HttpMethod.GET, null, new ParameterizedTypeReference<List<Classes>>() {});
+    return response;
+}
+    @GetMapping("/{courseId}/documents")
+    public ResponseEntity<List<Document>> getCourseDocuments(@PathVariable Long courseId) {
+        String documentServiceUrl = documentsHost + documentsServicePath + courseId;
+        ResponseEntity<List<Document>> response = restTemplate.getForEntity(documentServiceUrl, (Class<List<Document>>)(Class<?>)List.class);
+        return response;
+    }
 //    public ResponseEntity<List<CourseDocuments>> getDocumentsByCourseId(@RequestParam Integer courseId) {
 //        List<CourseDocuments> documents = courseService.getCourseDocumentsByCourseId(courseId);
 //        if (documents.isEmpty())
